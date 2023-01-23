@@ -7,7 +7,7 @@ namespace CMS_Projekt_API.Data
 {
     public class ApplicationDBContext : DbContext
     {
-        public DbSet<AdvantagesDTO> Advantages_List { get; set; }
+        public virtual DbSet<AdvantagesDTO> Advantages_List { get; set; }
         public virtual DbSet<Page_SectionsDTO> Page_Sections_List { get; set; }
         public virtual DbSet<ServicesDTO> Services_List { get; set; }
         public virtual DbSet<UsersDTO> Users_List { get; set; }
@@ -17,7 +17,9 @@ namespace CMS_Projekt_API.Data
         {
  
         }
- 
 
+        public ApplicationDBContext()
+        {
+        }
     }
 }

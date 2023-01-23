@@ -6,9 +6,11 @@ using System.Data;
 using System.Drawing;
 using CMS_Projekt_API.Models.Dto;
 using CMS_Projekt_API.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CMS_Projekt_API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AdvantagesCoontroller : ControllerBase

@@ -1,4 +1,5 @@
 ﻿using CMS_Projekt_API.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System.Data;
@@ -6,7 +7,7 @@ using System.Xml.Linq;
 
 namespace CMS_Projekt_API.Controllers
 {
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class Page_SectionsController : ControllerBase

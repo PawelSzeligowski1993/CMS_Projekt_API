@@ -1,11 +1,12 @@
 ﻿using CMS_Projekt_API.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
 using System.Data;
 
 namespace CMS_Projekt_API.Controllers
 {
-
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ServicesController : ControllerBase

@@ -1,12 +1,12 @@
-﻿namespace CMS_Projekt_API.Models.Dto
+﻿namespace AuthenticationAndAuthorization.AppModel
 {
-    public class UsersDTO
+    public class UserModel
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
-        public string CMS_Role { get; set; }
         public string Password { get; set; }
+        public string CMS_Role { get; set; }
         public string UserMessage { get; set; }
         public string AccessToken { get; set; }
         public DateTime CreatedDate { get; set; }

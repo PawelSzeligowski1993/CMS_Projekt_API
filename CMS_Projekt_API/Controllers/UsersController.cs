@@ -1,22 +1,25 @@
 ﻿using CMS_Projekt_API.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Npgsql;
+using NpgsqlTypes;
 using System.Data;
 
 namespace CMS_Projekt_API.Controllers
 {
-
-    [Route("api/[controller]")]
+    [Authorize]
+    [Route("[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly IConfiguration _configuration;
+        IConfiguration _configuration;
         public UsersController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
         [HttpGet]
+        //[Route("GetAllUsers")]
         public JsonResult Get()
         {
             string query = @"
@@ -50,6 +53,7 @@ namespace CMS_Projekt_API.Controllers
         }
 
         [HttpPost]
+        //[Route("AddNewUser")]
         public JsonResult Post(UsersDTO user)
         {
 
@@ -86,6 +90,7 @@ namespace CMS_Projekt_API.Controllers
         }
 
         [HttpPut]
+        //[Route("EditUser")]
         public JsonResult Put(UsersDTO user)
         {
             string query = @"
@@ -126,6 +131,7 @@ namespace CMS_Projekt_API.Controllers
 
 
         [HttpDelete("{id}")]
+        //[Route("DeleteUserByID")]
         public JsonResult Delete(int id)
         {
             string query = @"
