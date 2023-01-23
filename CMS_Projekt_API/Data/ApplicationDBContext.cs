@@ -15,21 +15,9 @@ namespace CMS_Projekt_API.Data
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) : base(options)
 
         {
-
+ 
         }
  
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-
-        //    modelBuilder.Entity<UsersDTO>(entity => {
-        //        entity.HasOne(t => t.tea)
-
-
-
-        //    });
-        //}
 
     }
 }

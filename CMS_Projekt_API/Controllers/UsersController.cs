@@ -21,10 +21,11 @@ namespace CMS_Projekt_API.Controllers
         {
             string query = @"
                 select id as ""Id"",
-                       firstname as ""FirstName"",
-                       lastname as ""LastName"",
+                       full_name as ""Full_Name"",
+                       email as ""Email"",
                        cms_role as ""CMS_role"",
-                       password as ""Password""
+                       password as ""Password"",
+                       created_date as ""Created_Date""
                 from users
             ";
 
@@ -53,8 +54,8 @@ namespace CMS_Projekt_API.Controllers
         {
 
             string query = @"
-                insert into users(id,firstname,lastname,cms_role,password)
-                values (@id,@FirstName,@LastName,@CMS_Role,@Password)
+                insert into users(id,full_name,email,cms_role,password, created_date)
+                values (@id,@Full_Name,@Email,@CMS_Role,@Password,Created_Date)
             ";
 
             DataTable table = new DataTable();
@@ -66,11 +67,11 @@ namespace CMS_Projekt_API.Controllers
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@id", user.Id);
-                    myCommand.Parameters.AddWithValue("@firstname", user.FirstName);
-                    myCommand.Parameters.AddWithValue("@lastname", user.LastName);
+                    myCommand.Parameters.AddWithValue("@full_name", user.FullName);
+                    myCommand.Parameters.AddWithValue("@email", user.Email);
                     myCommand.Parameters.AddWithValue("@cms_role", user.CMS_Role);
                     myCommand.Parameters.AddWithValue("@password", user.Password);
-
+                    myCommand.Parameters.AddWithValue("@created_date", user.CreatedDate);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -89,10 +90,11 @@ namespace CMS_Projekt_API.Controllers
         {
             string query = @"
                 update users
-                set firstname = @firstname,
-                lastname = @lastname,
+                set full_name = @full_name,
+                email = @email,
                 cms_role = @cms_role,
-                password = @password
+                password = @password,
+                created_date = @created_date
                 where id = @id 
             ";
 
@@ -105,10 +107,11 @@ namespace CMS_Projekt_API.Controllers
                 using (NpgsqlCommand myCommand = new NpgsqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@id", user.Id);
-                    myCommand.Parameters.AddWithValue("@firstname", user.FirstName);
-                    myCommand.Parameters.AddWithValue("@lastname", user.LastName);
+                    myCommand.Parameters.AddWithValue("@full_name", user.FullName);
+                    myCommand.Parameters.AddWithValue("@email", user.Email);
                     myCommand.Parameters.AddWithValue("@cms_role", user.CMS_Role);
                     myCommand.Parameters.AddWithValue("@password", user.Password);
+                    myCommand.Parameters.AddWithValue("@created_date", user.CreatedDate);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
 
